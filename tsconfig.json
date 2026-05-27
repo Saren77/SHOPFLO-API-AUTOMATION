@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "lib": ["ES2022"],
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@schemas/*": ["schemas/*"],
+      "@fixtures/*": ["fixtures/*"]
+    },
+    "types": ["node"]
+  },
+  "include": ["tests/**/*.ts", "schemas/**/*.ts", "fixtures/**/*.ts", "playwright.config.ts"]
+}

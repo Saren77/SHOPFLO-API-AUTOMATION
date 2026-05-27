@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://fakestoreapi.com/contracts/cart.json",
+  "title": "Cart",
+  "description": "Frozen contract for GET /carts/{id} responses. Any drift in field names or types fails the contract test, forcing a deliberate update here.",
+  "type": "object",
+  "required": ["id", "userId", "date", "products"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "integer", "minimum": 1 },
+    "userId": { "type": "integer", "minimum": 1 },
+    "date": { "type": "string", "minLength": 1 },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["productId", "quantity"],
+        "additionalProperties": false,
+        "properties": {
+          "productId": { "type": "integer", "minimum": 1 },
+          "quantity": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "__v": { "type": "integer" }
+  }
+}
