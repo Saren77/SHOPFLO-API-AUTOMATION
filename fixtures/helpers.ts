@@ -2,11 +2,6 @@ import type { APIResponse } from '@playwright/test';
 import { expect } from '@playwright/test';
 import type { ZodSchema } from 'zod';
 
-/**
- * Parse a response body with a zod schema and surface the validation error in
- * the test output if it fails. We intentionally do NOT swallow the error — a
- * shape mismatch should fail loudly with the offending data visible.
- */
 export async function parseJson<T>(response: APIResponse, schema: ZodSchema<T>): Promise<T> {
   const body = await response.json();
   const result = schema.safeParse(body);
